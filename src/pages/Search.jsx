@@ -90,7 +90,7 @@ class Search extends React.Component {
             </p>
             <ul>
               {artistInfo.map((album) => (
-                <li key={ album.collectionName }>
+                <li key={ album.collectionId }>
                   <span>{album.collectionName}</span>
                   <span>{album.artistName}</span>
                   <Link

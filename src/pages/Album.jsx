@@ -18,6 +18,7 @@ class Album extends React.Component {
 
   fetchMusic = async (id) => {
     const info = await getMusics(id);
+    console.log(info);
     this.setState({
       albumInfo: info,
       isLoading: false,
@@ -26,7 +27,6 @@ class Album extends React.Component {
 
   render() {
     const { albumInfo, isLoading } = this.state;
-    console.log(albumInfo);
     return (
       <div data-testid="page-album">
         <Header />
@@ -39,8 +39,10 @@ class Album extends React.Component {
               .map((track) => (
                 <MusicCard
                   key={ track.trackId }
+                  trackId={ track.trackId }
                   trackName={ track.trackName }
                   previewUrl={ track.previewUrl }
+                  trackInfo={ track }
                 />
               ))}
           </div>
