@@ -35,8 +35,7 @@ class Login extends React.Component {
   render() {
     const { name, buttonDisabled, isLoading } = this.state;
     if (isLoading) {
-      // return (<LoadingMessage />);
-      return (<p>Carregando...</p>);
+      return (<LoadingMessage />);
     }
     return (
       <div data-testid="page-login">
