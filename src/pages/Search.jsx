@@ -1,9 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import LoadingMessage from '../components/LoadingMessage';
-import Album from './Album';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 class Search extends React.Component {
   state = {
@@ -90,11 +89,19 @@ class Search extends React.Component {
               { savedName}
             </p>
             <ul>
-              {artistInfo.map((album) => <li key={album.collectionName}>
-                <span>{album.collectionName}</span>
-                <span>{album.artistName}</span>
-                <Link data-testid={`link-to-album-${album.collectionId}`} to={`/album/${album.collectionId}`}>Mais informações</Link>
-              </li>)}
+              {artistInfo.map((album) => (
+                <li key={ album.collectionName }>
+                  <span>{album.collectionName}</span>
+                  <span>{album.artistName}</span>
+                  <Link
+                    data-testid={ `link-to-album-${album.collectionId}` }
+                    to={ `/album/${album.collectionId}` }
+                  >
+                    Mais informações
+
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         )}
