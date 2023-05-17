@@ -10,6 +10,8 @@ class Album extends React.Component {
     albumInfo: [],
     favoriteSongsIDS: [],
     isLoading: true,
+    artistName: '',
+    collectionName: '',
   };
 
   componentDidMount() {
@@ -33,22 +35,28 @@ class Album extends React.Component {
   };
 
   fetchMusic = async (id) => {
+    this.setState({
+      isLoading: true,
+    });
     const info = await getMusics(id);
     this.setState({
       albumInfo: info,
       isLoading: false,
+      artistName: info[0].artistName,
+      collectionName: info[0].collectionName,
     });
   };
 
   render() {
-    const { albumInfo, isLoading, favoriteSongsIDS } = this.state;
+    const { albumInfo, isLoading, favoriteSongsIDS, artistName, collectionName } = this.state;
+    console.log(albumInfo);
     return (
       <div data-testid="page-album">
         <Header />
         {!isLoading && (
           <div>
-            <h1 data-testid="artist-name">{albumInfo[0].artistName}</h1>
-            <h1 data-testid="album-name">{albumInfo[0].collectionName}</h1>
+            <h1 data-testid="artist-name">{artistName}</h1>
+            <h1 data-testid="album-name">{collectionName}</h1>
             {albumInfo
               .filter((_, index) => index !== 0)
               .map((track) => (

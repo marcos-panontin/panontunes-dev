@@ -40,7 +40,6 @@ class Search extends React.Component {
       APIRequested: true,
       artistInfo: info,
     });
-    console.log(info);
   };
 
   render() {
