@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import LoadingMessage from './LoadingMessage';
 
 class MusicCard extends React.Component {
@@ -12,7 +12,6 @@ class MusicCard extends React.Component {
   componentDidUpdate(_, prevState) {
     const { favoriteSongsIDS, trackId } = this.props;
     if (!prevState.isFavorite && favoriteSongsIDS.includes(trackId)) {
-      console.log('entrou no loop');
       this.setState({
         isFavorite: favoriteSongsIDS.includes(trackId),
       });
@@ -25,7 +24,12 @@ class MusicCard extends React.Component {
       isFavorite: target.checked,
       isLoading: true,
     });
-    await addSong(trackInfo);
+    if (target.checked) {
+      await addSong(trackInfo);
+    }
+    if (!target.checked) {
+      await removeSong(trackInfo);
+    }
     const favoriteSongs = await getFavoriteSongs();
     const favoriteSongsIDS = favoriteSongs.map((song) => song.trackId);
     this.setState({
