@@ -1,7 +1,8 @@
 import React from 'react';
 import Header from '../components/Header';
-import { getFavoriteSongs } from '../services/favoriteSongsAPI';
-import MusicCard from '../components/MusicCard';
+import { getFavoriteSongs, addSong, removeSong } from '../services/favoriteSongsAPI';
+import FavoriteMusicCard from '../components/FavoriteMusicCard';
+import LoadingMessage from '../components/LoadingMessage';
 
 class Favorites extends React.Component {
   state = {
@@ -14,33 +15,55 @@ class Favorites extends React.Component {
 
   fetchFavoriteSongs = async () => {
     this.setState({
-      // isLoading: true,
+      isLoading: true,
     });
     const favoriteSongs = await getFavoriteSongs();
-    const favoriteSongsIDS = favoriteSongs.map((song) => song.trackId);
 
     this.setState({
       favoriteSongs,
-      favoriteSongsIDS,
-      // isLoading: false,
+      isLoading: false,
+    });
+  };
+
+  handleCheckboxChange = async ({ target }, trackInfo) => {
+    console.log(trackInfo);
+
+    this.setState({
+      isLoading: true,
+    });
+    if (target.checked) {
+      await addSong(trackInfo);
+    }
+    if (!target.checked) {
+      await removeSong(trackInfo);
+    }
+    const favoriteSongs = await getFavoriteSongs();
+
+    this.setState({
+      favoriteSongs,
+      isLoading: false,
     });
   };
 
   render() {
-    const { favoriteSongs, favoriteSongsIDS } = this.state;
+    const { favoriteSongs, isLoading } = this.state;
+    // const favoriteSongsIDS = favoriteSongs.map((song) => song.trackId);
+
     return (
       <div data-testid="page-favorites">
         <Header />
-        {favoriteSongs.map((track) => (<MusicCard
-          key={ track.trackId }
-          trackId={ track.trackId }
-          trackName={ track.trackName }
-          previewUrl={ track.previewUrl }
-          trackInfo={ track }
-          musicIsFavorite
-          favoriteSongsIDS={ favoriteSongsIDS }
-          handleCheckboxChangeOnFavorite={ this.handleCheckboxChangeOnFavorite }
-        />))}
+        {isLoading ? <LoadingMessage /> : favoriteSongs
+          .map((track) => (<FavoriteMusicCard
+            key={ track.trackId }
+            trackId={ track.trackId }
+            trackName={ track.trackName }
+            previewUrl={ track.previewUrl }
+            trackInfo={ track }
+            favoriteSongs={ favoriteSongs }
+            isChecked={ favoriteSongs
+              .map((song) => song.trackId).includes(track.trackId) }
+            handleCheckboxChange={ this.handleCheckboxChange }
+          />))}
       </div>
     );
   }
