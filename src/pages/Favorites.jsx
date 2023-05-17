@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';
-import { getFavoriteSongs, removeSong, addSong } from '../services/favoriteSongsAPI';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import MusicCard from '../components/MusicCard';
 
 class Favorites extends React.Component {
@@ -14,7 +14,7 @@ class Favorites extends React.Component {
 
   fetchFavoriteSongs = async () => {
     this.setState({
-      isLoading: true,
+      // isLoading: true,
     });
     const favoriteSongs = await getFavoriteSongs();
     const favoriteSongsIDS = favoriteSongs.map((song) => song.trackId);
@@ -22,10 +22,9 @@ class Favorites extends React.Component {
     this.setState({
       favoriteSongs,
       favoriteSongsIDS,
-      isLoading: false,
+      // isLoading: false,
     });
   };
-
 
   render() {
     const { favoriteSongs, favoriteSongsIDS } = this.state;

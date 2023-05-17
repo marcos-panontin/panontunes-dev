@@ -48,7 +48,11 @@ class Album extends React.Component {
   };
 
   render() {
-    const { albumInfo, isLoading, favoriteSongsIDS, artistName, collectionName } = this.state;
+    const { albumInfo,
+      isLoading,
+      favoriteSongsIDS,
+      artistName,
+      collectionName } = this.state;
     console.log(albumInfo);
     return (
       <div data-testid="page-album">
