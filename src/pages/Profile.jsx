@@ -33,7 +33,8 @@ class Profile extends React.Component {
           <>
             <section className="user-info">
 
-              <img data-testid="profile-image" alt="User Avatar" src="url-to-image" />
+              {/* <img data-testid="profile-image" alt="User Avatar" src="url-to-image" /> */}
+              <img data-testid="profile-image" alt="User Avatar" src={ user.image } />
               <p>{ user.name }</p>
               <p>{ user.email }</p>
               <p>{ user.description }</p>
