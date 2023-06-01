@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: fill-available;
+}
+
+html {
+  height: fill-available;
+}
+
+body {
+  align-items: center;
+  background-color: #b1b0fb;
+  display: flex;
+
+  /* height: 100vh; */
+  justify-content: center;
+
+  /* background-image: linear-gradient(#0061ff, #60efff); */
+
+  /* color: white; */
+}
+
+#root {
+  /* border: solid 3px red; */
+  min-height: 100vh;
+  padding: clamp(5px, 5vh, 30px);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.title-container {
+  color: #fc8f7e;
+  font-family: Pacifico, cursive;
+  font-size: clamp(10px, 10vh, 50px);
+}
+
+.page-container {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+  padding: clamp(5px, 2vh, 50px);
+}
+
+.login-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: clamp(200px, 50%, 500px);
+}
+
+.woman-image {
+  margin-bottom: clamp(3px, 5vh, 10px);
+  width: clamp(200px, 50%, 500px);
+}
+
+.login-btn {
+  background-color: #b1b0fc;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  padding: 0.3em 0.5em;
+  width: 100%;
+}
+
+.login-btn:disabled {
+  background-color: grey;
+  color: darkgrey;
+  cursor: auto;
+}
+
+.login-btn:disabled:hover {
+  background-color: grey;
+  color: darkgrey;
+  cursor: auto;
+}
+
+.form-control:focus {
+  border-color: #280064;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #280064;
+}
+
+.login-btn:hover {
+  background-color: #9392d0;
+}
+
+.icon-container:hover {
+  background-color: white;
+  border: solid 1px #fc8f7e;
+  color: #fc8f7e;
+}
+
+i.bi-heart-fill {
+  color: lightgrey;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .heart-icon i.bi-heart-fill {
+  color: #fc8f7e;
+}
+
+.flex-container {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-around;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: #b1b0fb;
+}
+
+@media (width <= 500px) {
+  body {
+    background-color: #fff;
+  }
+
+  .login-container {
+    height: 80vh;
+    width: 100%;
+  }
+
+  .woman-image {
+    width: 100%;
+  }
+}

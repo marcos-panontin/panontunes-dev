@@ -1,5 +1,6 @@
 const searchAlbumsAPI = async (artist) => {
-  const artistNameURL = encodeURI(artist).replaceAll('%20', '+');
+  const normalizedName = artist.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const artistNameURL = encodeURI(normalizedName).replaceAll('%20', '+');
 
   const getAlbumsAPI = `https://itunes.apple.com/search?entity=album&term=${artistNameURL}&attribute=allArtistTerm`;
 
@@ -15,6 +16,7 @@ const searchAlbumsAPI = async (artist) => {
       collectionName,
       collectionPrice,
       artworkUrl100,
+      artworkUrl200,
       releaseDate,
       trackCount,
     }) => ({
@@ -24,6 +26,7 @@ const searchAlbumsAPI = async (artist) => {
       collectionName,
       collectionPrice,
       artworkUrl100,
+      artworkUrl200,
       releaseDate,
       trackCount,
     }),

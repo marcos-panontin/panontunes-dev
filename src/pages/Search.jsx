@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import LoadingMessage from '../components/LoadingMessage';
+import '../css/Search.css';
+import circleImage from '../css/images/circle.png';
 
 class Search extends React.Component {
   state = {
@@ -51,8 +53,14 @@ class Search extends React.Component {
       savedName } = this.state;
 
     return (
-      <div data-testid="page-search">
-        <Header />
+      <div data-testid="page-search" className="search-container">
+        <nav>
+
+          <div className="title-container">
+            <p>PanonTunes</p>
+          </div>
+          <Header />
+        </nav>
 
         {isLoading ? <LoadingMessage /> : (
           <form>
@@ -65,12 +73,14 @@ class Search extends React.Component {
                 value={ artist }
                 name="artist"
                 placeholder="Pesquise por artista ou banda"
+                className="form-control"
 
               />
               <button
                 data-testid="search-artist-button"
                 disabled={ isDisabled }
                 onClick={ this.handleClick }
+                className="search-btn"
               >
                 Pesquisar
 
@@ -80,26 +90,31 @@ class Search extends React.Component {
         )}
 
         {APIRequested && artistInfo.length > 0 && (
-          <div>
-            <p>
-              {' '}
-              Resultado de álbuns de:
-              {' '}
-              { savedName}
+          <div className="results-container">
+            <p className="results-paragraph">
+
+              <span className="band-name">{ savedName}</span>
+
             </p>
             <ul>
               {artistInfo.map((album) => (
-                <li key={ album.collectionId }>
-                  <span>{album.collectionName}</span>
-                  <span>{album.artistName}</span>
-                  <Link
-                    data-testid={ `link-to-album-${album.collectionId}` }
-                    to={ `/album/${album.collectionId}` }
-                  >
-                    Mais informações
 
-                  </Link>
-                </li>
+                <Link
+                  key={ album.collectionId }
+                  data-testid={ `link-to-album-${album.collectionId}` }
+                  to={ `/album/${album.collectionId}` }
+                >
+                  <li className="album">
+                    <div className="album-image-container">
+                      <img className="album-image" src={ album.artworkUrl200 } alt="" />
+
+                      <img className="album-image-circle" src={ circleImage } alt="" />
+                    </div>
+                    <span />
+                    <span className="album-name">{album.collectionName}</span>
+
+                  </li>
+                </Link>
               ))}
             </ul>
           </div>

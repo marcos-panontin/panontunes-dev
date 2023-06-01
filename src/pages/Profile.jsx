@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Header from '../components/Header';
 import { getUser } from '../services/userAPI';
 import LoadingMessage from '../components/LoadingMessage';
+import '../css/Profile.css';
 
 class Profile extends React.Component {
   state = {
@@ -27,20 +28,26 @@ class Profile extends React.Component {
   render() {
     const { isLoading, user } = this.state;
     return (
-      <div data-testid="page-profile">
-        <Header />
+      <div data-testid="page-profile" className='page-profile'>
+        <nav>
+
+          <div className="title-container">
+            <p>PanonTunes</p>
+          </div>
+          <Header />
+        </nav>
         {isLoading ? <LoadingMessage /> : (
           <>
             <section className="user-info">
 
               {/* <img data-testid="profile-image" alt="User Avatar" src="url-to-image" /> */}
-              <img data-testid="profile-image" alt="User Avatar" src={ user.image } />
+              <img data-testid="profile-image" alt="User Avatar" src={ user.image } className='user-avatar'/>
               <p>{ user.name }</p>
               <p>{ user.email }</p>
               <p>{ user.description }</p>
 
             </section>
-            <Link to="/profile/edit">Editar perfil</Link>
+            <Link to="/profile/edit" className="btn btn-success">Editar perfil</Link>
           </>
         )}
 

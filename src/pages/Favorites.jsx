@@ -50,20 +50,30 @@ class Favorites extends React.Component {
     // const favoriteSongsIDS = favoriteSongs.map((song) => song.trackId);
 
     return (
-      <div data-testid="page-favorites">
-        <Header />
-        {isLoading ? <LoadingMessage /> : favoriteSongs
-          .map((track) => (<FavoriteMusicCard
-            key={ track.trackId }
-            trackId={ track.trackId }
-            trackName={ track.trackName }
-            previewUrl={ track.previewUrl }
-            trackInfo={ track }
-            favoriteSongs={ favoriteSongs }
-            isChecked={ favoriteSongs
-              .map((song) => song.trackId).includes(track.trackId) }
-            handleCheckboxChange={ this.handleCheckboxChange }
-          />))}
+      <div data-testid="page-favorites" className="page-favorites">
+        <nav>
+
+          <div className="title-container">
+            <p>PanonTunes</p>
+          </div>
+          <Header />
+        </nav>
+        <div className="musics-container">
+
+          {isLoading ? <LoadingMessage /> : favoriteSongs
+            .map((track) => (<FavoriteMusicCard
+              key={ track.trackId }
+              trackId={ track.trackId }
+              trackName={ track.trackName }
+              previewUrl={ track.previewUrl }
+              trackInfo={ track }
+              favoriteSongs={ favoriteSongs }
+              isChecked={ favoriteSongs
+                .map((song) => song.trackId).includes(track.trackId) }
+              handleCheckboxChange={ this.handleCheckboxChange }
+            />))}
+        </div>
+
       </div>
     );
   }

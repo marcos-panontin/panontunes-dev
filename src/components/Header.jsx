@@ -27,11 +27,32 @@ class Header extends React.Component {
       return (<LoadingMessage />);
     }
     return (
-      <header data-testid="header-component">
-        <h1 data-testid="header-user-name">{username}</h1>
-        <Link to="/search" data-testid="link-to-search">Search</Link>
-        <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
-        <Link to="/profile" data-testid="link-to-profile">Profile</Link>
+      <header data-testid="header-component" className='header-right-side'>
+        <h1 data-testid="header-user-name" className='header-user-name'>
+          Olá,
+          {' '}
+          {username}
+        </h1>
+        <section className="icons-container">
+
+          <Link to="/search" data-testid="link-to-search" className="icon-container">
+            <i className="bi bi-search" />
+          </Link>
+
+          <Link
+            to="/favorites"
+            data-testid="link-to-favorites"
+            className="icon-container"
+          >
+            <i className="bi bi-heart" />
+          </Link>
+
+          <Link to="/profile" data-testid="link-to-profile" className="icon-container">
+            <i className="bi bi-person" />
+          </Link>
+
+        </section>
+
       </header>
     );
   }

@@ -1,0 +1,117 @@
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  /* align-items: center; */
+}
+
+li {
+  list-style: none;
+}
+
+.results-paragraph {
+  align-self: center;
+  margin-top: 1em;
+}
+
+.band-name {
+  color: #6a6994;
+  font-family: Pacifico, cursive;
+  font-size: 2em;
+}
+
+.album {
+  margin-bottom: 0.4em;
+  text-align: center;
+
+  /* width: clamp(40px, 10vw, 60px); */
+  width: 140px;
+}
+
+.album-image-container {
+  display: flex;
+  position: relative;
+}
+
+.album-image-container:hover {
+  cursor: pointer;
+  transform: scale(110%);
+}
+
+.album-image {
+  border-radius: 50%;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.album-image-circle {
+  animation: rotation 20s infinite linear;
+  margin: 0 auto;
+  width: 120px;
+}
+
+@keyframes rotation {
+  ,
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.album-name {
+  color: #280064;
+  font-weight: 500;
+}
+
+a {
+  text-decoration: none;
+}
+
+.page-album,
+.page-favorites,
+.page-profile,
+.page-profile-edit {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.album-details-page, .musics-container {
+  gap: 30px;
+  justify-content: center;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.band-info-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: Pacifico;
+}
+
+.band-info-container .album-picture {
+  border-radius: 50%;
+  width: 150px;
+}
+
+.music-container {
+  border-bottom: solid 2px #6a6994;
+  margin-bottom: 10px;
+}
+
+audio {
+  margin-bottom: 10px;
+}
+
+@media (min-width: 600px) {
+  .album-details-page {
+    display: flex;
+  }
+}

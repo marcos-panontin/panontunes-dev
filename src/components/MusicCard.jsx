@@ -56,8 +56,23 @@ class MusicCard extends React.Component {
     }
 
     return (
-      <>
-        <p>{trackName}</p>
+      <div className='music-container'>
+        <div className="flex-container">
+
+          <p>{trackName}</p>
+          <label className="checkbox-label">
+
+            <input
+              data-testid={ `checkbox-music-${trackId}` }
+              type="checkbox"
+              checked={ isFavorite }
+              onChange={ this.handleCheckboxChange }
+            />
+            <span className="heart-icon">
+              <i className="bi bi-heart-fill" />
+            </span>
+          </label>
+        </div>
         <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />
           O seu navegador não suporta o elemento
@@ -66,17 +81,7 @@ class MusicCard extends React.Component {
           <code>audio</code>
           .
         </audio>
-        <label>
-          Favorita
-
-          <input
-            data-testid={ `checkbox-music-${trackId}` }
-            type="checkbox"
-            checked={ isFavorite }
-            onChange={ this.handleCheckboxChange }
-          />
-        </label>
-      </>
+      </div>
     );
   }
 }

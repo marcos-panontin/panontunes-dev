@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
+import '../css/Album.css';
 
 class Album extends React.Component {
   state = {
@@ -55,24 +56,37 @@ class Album extends React.Component {
       collectionName } = this.state;
     console.log(albumInfo);
     return (
-      <div data-testid="page-album">
-        <Header />
+      <div data-testid="page-album" className='page-album'>
+        <nav>
+
+          <div className="title-container">
+            <p>PanonTunes</p>
+          </div>
+          <Header />
+        </nav>
         {!isLoading && (
-          <div>
-            <h1 data-testid="artist-name">{artistName}</h1>
-            <h1 data-testid="album-name">{collectionName}</h1>
-            {albumInfo
-              .filter((_, index) => index !== 0)
-              .map((track) => (
-                <MusicCard
-                  key={ track.trackId }
-                  trackId={ track.trackId }
-                  trackName={ track.trackName }
-                  previewUrl={ track.previewUrl }
-                  trackInfo={ track }
-                  favoriteSongsIDS={ favoriteSongsIDS }
-                />
-              ))}
+          <div className='album-details-page'>
+            <div className="band-info-container">
+
+              <img className="album-picture" src={ albumInfo[0].artworkUrl100 } alt="" />
+              <h1 data-testid="artist-name">{artistName}</h1>
+              <h1 data-testid="album-name">{collectionName}</h1>
+            </div>
+            <div className="musics-container">
+              {albumInfo
+                .filter((_, index) => index !== 0)
+                .map((track) => (
+                  <MusicCard
+                    key={ track.trackId }
+                    trackId={ track.trackId }
+                    trackName={ track.trackName }
+                    previewUrl={ track.previewUrl }
+                    trackInfo={ track }
+                    favoriteSongsIDS={ favoriteSongsIDS }
+                  />
+                ))}
+
+            </div>
           </div>
         )}
 

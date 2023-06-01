@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import { getUser, updateUser } from '../services/userAPI';
+import '../css/ProfileEdit.css';
 
 import LoadingMessage from '../components/LoadingMessage';
 
@@ -84,41 +85,77 @@ class ProfileEdit extends React.Component {
     const { isLoading, buttonDisabled, name, email, description, image } = this.state;
     console.log(buttonDisabled);
     return (
-      <div data-testid="page-profile-edit">
-        <Header />
+      <div data-testid="page-profile-edit" className='page-profile-edit'>
+        <nav>
+
+          <div className="title-container">
+            <p>PanonTunes</p>
+          </div>
+          <Header />
+        </nav>
         {isLoading ? <LoadingMessage /> : (
           <form className="user-form">
-            <input
-              name="name"
-              type="text"
-              data-testid="edit-input-name"
-              value={ name }
-              onChange={ this.handleChange }
-            />
-            <input
-              name="email"
-              type="email"
-              data-testid="edit-input-email"
-              value={ email }
-              onChange={ this.handleChange }
-            />
-            <textarea
-              name="description"
-              data-testid="edit-input-description"
-              value={ description }
-              onChange={ this.handleChange }
-            />
-            <input
-              name="image"
-              type="text"
-              value={ image }
-              data-testid="edit-input-image"
-              onChange={ this.handleChange }
-            />
+            <div className="form-floating mb-3">
+              <input
+                className="form-control"
+                name="name"
+                type="text"
+                data-testid="edit-input-name"
+                value={ name }
+                onChange={ this.handleChange }
+                placeholder="Nome"
+              />
+              <label htmlFor="floatingInput">Nome</label>
+            </div>
+
+            <div className="form-floating mb-3">
+              <input
+                type="email"
+                className="form-control"
+                id="floatingInput"
+                name="email"
+                type="text"
+                value={ email }
+                data-testid="edit-input-image"
+                onChange={ this.handleChange }
+                placeholder="URL da imagem de perfil"
+              />
+              <label htmlFor="floatingInput">Email</label>
+            </div>
+
+            <div className="form-floating mb-3">
+              <textarea
+                className="form-control"
+                name="description"
+                type="text"
+                data-testid="edit-input-description"
+                value={ description }
+                onChange={ this.handleChange }
+                placeholder="Descrição"
+                id="floatingTextarea"
+                style={ { height: '100px' } }
+              />
+              <label htmlFor="floatingTextarea">Descrição</label>
+            </div>
+
+            <div className="form-floating mb-3">
+              <input
+                name="image"
+                type="text"
+                value={ image }
+                data-testid="edit-input-image"
+                onChange={ this.handleChange }
+                placeholder="URL da imagem de perfil"
+                className="form-control"
+              />
+              <label htmlFor="floatingInput">URL da imagem de perfil</label>
+            </div>
+
             <button
               data-testid="edit-button-save"
               disabled={ buttonDisabled }
               onClick={ this.handleClick }
+              className="btn btn-primary m-2"
             >
               Salvar
 
