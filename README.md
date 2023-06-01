@@ -1,8 +1,5 @@
 # TrybeTunes
 
-//## Prévia
-
-
 ## Deploy
 
 Acesse aqui: [PanonTunes](https://panontunes-dev.vercel.app/)
