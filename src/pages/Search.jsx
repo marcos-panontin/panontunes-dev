@@ -106,7 +106,7 @@ class Search extends React.Component {
                 >
                   <li className="album">
                     <div className="album-image-container">
-                      <img className="album-image" src={ album.artworkUrl200 } alt="" />
+                      <img className="album-image" src={ album.artworkUrl100 } alt="" />
 
                       <img className="album-image-circle" src={ circleImage } alt="" />
                     </div>
