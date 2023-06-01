@@ -25,7 +25,8 @@ Esse projeto foi realizado no Curso de Desenvolvimento Web da [Trybe](https://ww
 - fazer requisições e consumir dados de uma API do Itunes;
 - ciclos de vida de um componente React
 - setState
-- BrowserRouter
+- React Router
+- React Testing Library
 
 ## Instalação
 Siga as instruções abaixo para instalar e executar o PanonTunes em seu ambiente local:
