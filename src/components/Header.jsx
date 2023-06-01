@@ -27,8 +27,8 @@ class Header extends React.Component {
       return (<LoadingMessage />);
     }
     return (
-      <header data-testid="header-component" className='header-right-side'>
-        <h1 data-testid="header-user-name" className='header-user-name'>
+      <header data-testid="header-component" className="header-right-side">
+        <h1 data-testid="header-user-name" className="header-user-name">
           Olá,
           {' '}
           {username}

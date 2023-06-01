@@ -28,7 +28,7 @@ class Profile extends React.Component {
   render() {
     const { isLoading, user } = this.state;
     return (
-      <div data-testid="page-profile" className='page-profile'>
+      <div data-testid="page-profile" className="page-profile">
         <nav>
 
           <div className="title-container">
@@ -41,7 +41,12 @@ class Profile extends React.Component {
             <section className="user-info">
 
               {/* <img data-testid="profile-image" alt="User Avatar" src="url-to-image" /> */}
-              <img data-testid="profile-image" alt="User Avatar" src={ user.image } className='user-avatar'/>
+              <img
+                data-testid="profile-image"
+                alt="User Avatar"
+                src={ user.image }
+                className="user-avatar"
+              />
               <p>{ user.name }</p>
               <p>{ user.email }</p>
               <p>{ user.description }</p>

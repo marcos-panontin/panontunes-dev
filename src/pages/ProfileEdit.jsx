@@ -85,7 +85,7 @@ class ProfileEdit extends React.Component {
     const { isLoading, buttonDisabled, name, email, description, image } = this.state;
     console.log(buttonDisabled);
     return (
-      <div data-testid="page-profile-edit" className='page-profile-edit'>
+      <div data-testid="page-profile-edit" className="page-profile-edit">
         <nav>
 
           <div className="title-container">
@@ -114,7 +114,6 @@ class ProfileEdit extends React.Component {
                 className="form-control"
                 id="floatingInput"
                 name="email"
-                type="text"
                 value={ email }
                 data-testid="edit-input-image"
                 onChange={ this.handleChange }

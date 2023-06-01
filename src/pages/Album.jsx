@@ -56,7 +56,7 @@ class Album extends React.Component {
       collectionName } = this.state;
     console.log(albumInfo);
     return (
-      <div data-testid="page-album" className='page-album'>
+      <div data-testid="page-album" className="page-album">
         <nav>
 
           <div className="title-container">
@@ -65,7 +65,7 @@ class Album extends React.Component {
           <Header />
         </nav>
         {!isLoading && (
-          <div className='album-details-page'>
+          <div className="album-details-page">
             <div className="band-info-container">
 
               <img className="album-picture" src={ albumInfo[0].artworkUrl100 } alt="" />

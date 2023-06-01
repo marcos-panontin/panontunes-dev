@@ -20,7 +20,7 @@ class FavoriteMusicCard extends React.Component {
     }
 
     return (
-      <div className='music-container'>
+      <div className="music-container">
         <div className="flex-container">
 
           <p>{trackName}</p>

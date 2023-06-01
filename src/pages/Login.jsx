@@ -16,7 +16,8 @@ class Login extends React.Component {
   validateLogin = () => {
     const { name, password, checked } = this.state;
     const minimumLength = 3;
-    return (name.length >= minimumLength) && (password.length >= minimumLength) && checked;
+    return (name.length >= minimumLength)
+      && (password.length >= minimumLength) && checked;
   };
 
   handleChange = ({ target }) => {
@@ -73,7 +74,6 @@ class Login extends React.Component {
               name="name"
               type="text"
               id="name-input"
-
               data-testid="login-name-input"
               value={ name }
               onChange={ this.handleChange }
@@ -85,18 +85,12 @@ class Login extends React.Component {
           <div className="form-floating mb-3">
             <input
               className="form-control"
-              name="name"
-              type="text"
-              id="name-input"
-
               data-testid="login-name-input"
               value={ password }
               onChange={ this.handleChange }
-              placeholder="Nome"
               type="password"
               name="password"
               placeholder="Senha"
-              className="form-control"
               id="exampleInputPassword1"
             />
             <label htmlFor="floatingInput">Senha</label>
@@ -111,7 +105,13 @@ class Login extends React.Component {
               checked={ checked }
               onChange={ this.handleChange }
             />
-            <label className="form-check-label" htmlFor="exampleCheck1">Concordo com os termos de serviço.</label>
+            <label
+              className="form-check-label"
+              htmlFor="exampleCheck1"
+            >
+              Concordo com os termos de serviço.
+
+            </label>
           </div>
           <button
             data-testid="login-submit-button"

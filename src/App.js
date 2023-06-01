@@ -12,7 +12,7 @@ import './css/main.css';
 class App extends React.Component {
   render() {
     return (
-      <div className='page-container'>
+      <div className="page-container">
 
         <Switch>
           <Route exact path="/" component={ Login } />
