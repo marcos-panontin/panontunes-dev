@@ -55,7 +55,7 @@ class Search extends React.Component {
     return (
       <div data-testid="page-search" className="search-container">
         <nav>
-          <Link to="/">
+          <Link to="/search">
             <div className="title-container">
               <p>PanonTunes</p>
             </div>

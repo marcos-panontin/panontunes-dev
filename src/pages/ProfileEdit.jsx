@@ -89,7 +89,7 @@ class ProfileEdit extends React.Component {
       <div data-testid="page-profile-edit" className="page-profile-edit">
         <nav>
 
-          <Link to="/">
+          <Link to="/search">
             <div className="title-container">
               <p>PanonTunes</p>
             </div>

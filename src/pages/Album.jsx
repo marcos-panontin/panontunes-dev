@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
@@ -58,10 +59,12 @@ class Album extends React.Component {
     return (
       <div data-testid="page-album" className="page-album">
         <nav>
+          <Link to="/search">
 
-          <div className="title-container">
-            <p>PanonTunes</p>
-          </div>
+            <div className="title-container">
+              <p>PanonTunes</p>
+            </div>
+          </Link>
           <Header />
         </nav>
         {!isLoading && (

@@ -31,7 +31,7 @@ class Profile extends React.Component {
       <div data-testid="page-profile" className="page-profile">
         <nav>
 
-          <Link to="/">
+          <Link to="/search">
             <div className="title-container">
               <p>PanonTunes</p>
             </div>

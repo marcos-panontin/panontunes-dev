@@ -54,7 +54,7 @@ class Favorites extends React.Component {
       <div data-testid="page-favorites" className="page-favorites">
         <nav>
 
-          <Link to="/">
+          <Link to="/search">
             <div className="title-container">
               <p>PanonTunes</p>
             </div>
