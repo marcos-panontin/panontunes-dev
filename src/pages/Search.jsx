@@ -55,10 +55,11 @@ class Search extends React.Component {
     return (
       <div data-testid="page-search" className="search-container">
         <nav>
-
-          <div className="title-container">
-            <p>PanonTunes</p>
-          </div>
+          <Link to="/">
+            <div className="title-container">
+              <p>PanonTunes</p>
+            </div>
+          </Link>
           <Header />
         </nav>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Header from '../components/Header';
 import { getUser, updateUser } from '../services/userAPI';
 import '../css/ProfileEdit.css';
@@ -88,9 +89,11 @@ class ProfileEdit extends React.Component {
       <div data-testid="page-profile-edit" className="page-profile-edit">
         <nav>
 
-          <div className="title-container">
-            <p>PanonTunes</p>
-          </div>
+          <Link to="/">
+            <div className="title-container">
+              <p>PanonTunes</p>
+            </div>
+          </Link>
           <Header />
         </nav>
         {isLoading ? <LoadingMessage /> : (

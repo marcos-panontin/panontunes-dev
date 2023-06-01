@@ -31,9 +31,11 @@ class Profile extends React.Component {
       <div data-testid="page-profile" className="page-profile">
         <nav>
 
-          <div className="title-container">
-            <p>PanonTunes</p>
-          </div>
+          <Link to="/">
+            <div className="title-container">
+              <p>PanonTunes</p>
+            </div>
+          </Link>
           <Header />
         </nav>
         {isLoading ? <LoadingMessage /> : (

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Header from '../components/Header';
 import { getFavoriteSongs, addSong, removeSong } from '../services/favoriteSongsAPI';
 import FavoriteMusicCard from '../components/FavoriteMusicCard';
@@ -53,9 +54,11 @@ class Favorites extends React.Component {
       <div data-testid="page-favorites" className="page-favorites">
         <nav>
 
-          <div className="title-container">
-            <p>PanonTunes</p>
-          </div>
+          <Link to="/">
+            <div className="title-container">
+              <p>PanonTunes</p>
+            </div>
+          </Link>
           <Header />
         </nav>
         <div className="musics-container">

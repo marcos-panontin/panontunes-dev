@@ -39,6 +39,7 @@ nav {
 
 .title-container {
   color: #fc8f7e;
+  cursor: pointer;
   font-family: Pacifico, cursive;
   font-size: clamp(10px, 10vh, 50px);
 }
